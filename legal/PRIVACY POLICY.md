@@ -12,6 +12,7 @@ As of this revision, the developer does not collect and store any form of person
 
 The developer may update this Privacy Policy. 
 Changes will be posted here, and your continued use of the Bot constitutes acceptance of the revised policy.
+We will notify you on the event of a change.
 
 4. **Contact**
 
