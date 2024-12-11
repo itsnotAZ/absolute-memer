@@ -34,7 +34,8 @@ The developer is not liable for any damages arising from the use of the Bot.
 6. **Changes to Terms**
    
 The developer reserves the right to modify these Terms at any time. Changes will be posted here, 
-and your continued use of the Bot constitutes acceptance of the revised terms.
+and your continued use of the Bot constitutes acceptance of the revised terms. We will notify
+you on the event of a change.
 
 7. **Termination**
 
