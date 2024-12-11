@@ -25,7 +25,7 @@ import os
  
 bot_name = "Absolute Memer" # name of the bot
 bot_shde = "meme discord bot" # bot short description
-bot_vers = "0.0.1V ALPHA" # bot version
+bot_vers = "0.0.2V ALPHA" # bot version
 
 # specific variables for the bot
 
@@ -63,10 +63,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if client.user.mentioned_in(message):
+    if '@Absolute Memer#0834' in message.content.lower():
         await message.channel.send("yo")
-
-    await client.process_commands(message)
 
 # slash commands
 
