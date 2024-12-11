@@ -3,7 +3,7 @@
 
 <img src="https://img.shields.io/github/license/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/release/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/forks/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/last-commit/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/issues/itsnotAZ/absolute-memer.svg"/> ![servers](https://top.gg/api/widget/servers/1309201141912965191.svg) ![upvotes](https://top.gg/api/widget/upvotes/1309201141912965191.svg)
 
-**Current Version:** 0.0.1V
+**Current Version:** 0.0.3V
 </div>
 
 # Absolute Memer
