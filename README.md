@@ -16,14 +16,13 @@ this is THE discord bot to enhance funni in server. 🔥
 
 - Fun commands!
 - The bot is very sigma. 🗿
-- Theb bot actually originates from the ohio depths of skibidi. 🤯
-- Theb bot will reply "yo" when you ping it! ❗
+- The bot actually originates from the ohio depths of skibidi. 🤯
 
 ## Actual Features
 
 - Fun commands!
 - **ZERO** data collection.
-- LIgtweight codebase.
+- Ligtweight codebase.
 
 ## Update Roadmap
 
