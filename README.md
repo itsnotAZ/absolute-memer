@@ -1,5 +1,3 @@
-# !W.I.P!
-
 <div align="center">
 <img src="https://raw.githubusercontent.com/itsnotAZ/absolute-memer/refs/heads/main/other/1.png"/>
 
@@ -26,10 +24,16 @@ this is THE discord bot to enhance funni in server. 🔥
 
 ## Update Roadmap
 
+**THIS WILL ALWAYS BE SUBJECT TO CHANGE (i think)**
+
 - [ ] Config File
 - [ ] More commands
 - [ ] Buy Better Hosting
 - [ ] Actual Website
+
+## Contributing
+
+Just fork the repo and make a pull request which I will check and I might merge it.
 
 ## Other
 
