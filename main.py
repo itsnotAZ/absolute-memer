@@ -25,7 +25,7 @@ import os
  
 bot_name = "Absolute Memer" # name of the bot
 bot_shde = "meme discord bot" # bot short description
-bot_vers = "0.0.2V ALPHA" # bot version
+bot_vers = "0.0.3V ALPHA" # bot version
 
 # define client and intents
 
