@@ -6,7 +6,7 @@
 **Current Version:** 0.0.1V
 </div>
 
-# absolute-memer
+# Absolute Memer
 this is THE discord bot to enhance funni in server. 🔥
 
 **INVITE THE BOT:** [here](https://discord.com/oauth2/authorize?client_id=1309201141912965191)
