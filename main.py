@@ -27,22 +27,6 @@ bot_name = "Absolute Memer" # name of the bot
 bot_shde = "meme discord bot" # bot short description
 bot_vers = "0.0.2V ALPHA" # bot version
 
-# specific variables for the bot
-
-CATEGORIES = { # required by the context meme command, atp i will do anything other than pay for an ai api key lol
-    "funny": ["lol", "haha", "funny", "joke", "lmao", "rofl"],
-    "gaming": ["game", "play", "minecraft", "fortnite", "league", "valorant", "gamer", "console"],
-    "animals": ["cat", "dog", "pet", "animal", "panda", "bird", "fish", "wildlife"],
-    "tech": ["programming", "code", "python", "tech", "computer", "developer", "javascript", "html", "css", "c++", "c"],
-    "sports": ["football", "soccer", "basketball", "cricket", "tennis", "hockey", "goal", "player"],
-    "movies": ["movie", "film", "actor", "hollywood", "marvel", "netflix", "cinema", "scene"],
-    "music": ["song", "music", "band", "guitar", "piano", "singer", "rock", "concert"],
-    "food": ["food", "pizza", "burger", "cake", "snack", "drink", "chocolate", "sushi"],
-    "travel": ["travel", "trip", "vacation", "beach", "mountain", "city", "explore", "flight"],
-    "science": ["science", "space", "nasa", "rocket", "biology", "chemistry", "physics", "discovery"],
-    "random": []
-}
-
 # define client and intents
 
 intents = discord.Intents.default()
@@ -80,7 +64,6 @@ async def help(interaction: discord.Interaction):
     commands.add_field(name=":rofl: */joke* command", value="Make the bot tell a random joke!", inline=False)
     commands.add_field(name=":thinking: */trivia* command", value="Make the bot give a random true/false question!", inline=False)
     commands.add_field(name="<:re:1311335608932896818> */redditmeme* command", value="Make the bot fetch a random command from reddit!", inline=False)
-    commands.add_field(name=":grey_question: **ALPHA** */contextmeme* command", value="The bot will try to understand the context of the conversation and find a relevant meme from reddit!", inline=False)
     commands.add_field(name=":sparkles: */memify* command", value=f"Turn an image url and a bit of input into a meme! \n\n\n", inline=False)
     commands.add_field(name=":grey_exclamation: **Some more things you should know:**", value="- *Attribution*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/ATRIBUTION.md\n- *Terms of Service*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/ToS.md\n- *Privacy Policy*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/PRIVACY%20POLICY.md\n- *Official Website*: https://github.com/itsnotAZ/absolute-memer\n", inline=False)
     await interaction.response.send_message(embed=commands)
@@ -142,29 +125,6 @@ async def mememify(interaction: discord.Interaction):
     data = response.json()
     link = data.get('postLink')
     await interaction.response.send_message(f":rofl: Here is what I found! {link}")
-
-@client.tree.command(name="contextmeme", description="Fetches a meme based on recent messages in the channel.") # random meme from reddit based on context command
-async def context_meme(interaction: discord.Interaction):
-    channel = interaction.channel
-    messages = await channel.history(limit=5).flatten()
-    context = " ".join([msg.content.lower() for msg in messages if msg.author != client.user])
-    selected_category = "random"
-    for category, keywords in CATEGORIES.items():
-        if any(keyword in context for keyword in keywords):
-            selected_category = category
-            break
-    api_url = f"https://meme-api.com/gimme/{selected_category}"
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        data = response.json()
-        meme_url = data.get('url', "No meme found.")
-        title = data.get('title', "Untitled Meme")
-        await interaction.response.send_message(f":thinking: Based on the conversation, here's a **{selected_category}** meme:\n**{title}**\n{meme_url}")
-    except requests.exceptions.RequestException as e:
-        await interaction.response.send_message("Oops! Couldn't fetch a meme. Please try again later.")
-        print(f"Error fetching meme: {e}")
-
 
 # run the client
 
