@@ -10,6 +10,7 @@
 this is THE discord bot to enhance funni in server. 🔥
 
 **INVITE THE BOT:** [here](https://discord.com/oauth2/authorize?client_id=1309201141912965191)
+**JOIN THE DISCORD:** [here](https://discord.gg/XSVXt9usMq)
 
 ## Features
 
