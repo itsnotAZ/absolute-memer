@@ -20,12 +20,20 @@ import html
 import asyncio
 import json
 import os
+import random
+from datetime import datetime, timedelta
 
 # general variables for the bot
  
 bot_name = "Absolute Memer" # name of the bot
 bot_shde = "meme discord bot" # bot short description
-bot_vers = "0.0.3V ALPHA" # bot version
+bot_vers = "0.0.4V ALPHA" # bot version
+promo = "<:am:1309893290921033818> Enjoying the bot? Support the development by upvoting on top.gg! It helps! <:am:1309893290921033818> https://top.gg/bot/1309201141912965191"
+
+# top.gg promo related code
+
+def ad_chance(chance=0.1):
+    return random.random() < chance
 
 # define client and intents
 
@@ -37,26 +45,22 @@ client = commands.Bot(command_prefix="!", intents=intents)
 @client.event
 async def on_ready():
     print(f"Bot is online as {client.user}")
+    await client.change_presence(activity=discord.Game(name="Vote for me on Top.gg!"))
     try:
         synced = await client.tree.sync()
         print(f"Synced {len(synced)} commands.")
     except Exception as e:
         print(f"Failed to sync commands: {e}")
 
-# check if the bot is pinged
-
-@client.event
-async def on_message(message):
-    if '@Absolute Memer#0834' in message.content.lower():
-        await message.channel.send("yo")
-
 # slash commands
 
 @client.tree.command(name="hello", description="Make the bot greet!") # hello command
 async def hello(interaction: discord.Interaction):
     await interaction.response.send_message(f"<:am:1309893290921033818> My name is {bot_name}, and I'm the best {bot_shde} :fire:")
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
 
-@client.tree.command(name="help", description="Displays a short manual to help you operatet the bot!") # help command
+@client.tree.command(name="help", description="Displays a short manual to help you operate the bot!") # help command
 async def help(interaction: discord.Interaction):
     commands = discord.Embed(
         title=f"<:am:1309893290921033818> {bot_name} Discord Bot <:am:1309893290921033818>", description=f"This is **THE BEST** {bot_shde}, devoid of AI, micro-transactions for major features and corporate enshitification! \n Created by itsnotAZ (itisnotAZ : https://itsnotaz.github.io/website/) \n ᴵ ᵗʳʸ ᵗᵒ ᵏᵉᵉᵖ ᵗʰⁱˢ ᵇᵒᵗ ˡⁱᵍʰᵗʰᵉᵃʳᵗᵉᵈ ᵇᵘᵗ ˢⁱⁿᶜᵉ ᵗʰᵉ ᵇᵒᵗ ᵖᵘˡˡˢ ᵐᵉᵐᵉˢ ᵃⁿᵈ ʲᵒᵏᵉˢ ᶠʳᵒᵐ ᵗʰᵉ ⁱⁿᵗᵉʳⁿᵉᵗ ⁱᵗ'ˢ ⁱᵐᵖᵒˢˢⁱᵇˡᵉ ᵗᵒ ᵐᵃᵏᵉ ᵗʰᵃᵗ ᶜᵉʳᵗᵃⁱⁿ ˢᵒ ᵖˡᵉᵃˢᵉ ᵈᵒⁿ'ᵗ ʰᵉˢⁱᵗᵃᵗᵉ ᵗᵒ ᶜᵒⁿᵗᵃᶜᵗ ᵐᵉ ᶠᵒʳ ᵃⁿʸ ᶜᵒⁿᶜᵉʳⁿˢ", color=0x336EFF
@@ -65,8 +69,10 @@ async def help(interaction: discord.Interaction):
     commands.add_field(name=":thinking: */trivia* command", value="Make the bot give a random true/false question!", inline=False)
     commands.add_field(name="<:re:1311335608932896818> */redditmeme* command", value="Make the bot fetch a random command from reddit!", inline=False)
     commands.add_field(name=":sparkles: */memify* command", value=f"Turn an image url and a bit of input into a meme! \n\n\n", inline=False)
-    commands.add_field(name=":grey_exclamation: **Some more things you should know:**", value="- *Attribution*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/ATRIBUTION.md\n- *Terms of Service*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/ToS.md\n- *Privacy Policy*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/PRIVACY%20POLICY.md\n- *Official Website*: https://github.com/itsnotAZ/absolute-memer\n", inline=False)
+    commands.add_field(name=":grey_exclamation: **Some more things you should know:**", value="- *Attribution*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/ATRIBUTION.md\n- *Terms of Service*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/ToS.md\n- *Privacy Policy*: https://github.com/itsnotAZ/absolute-memer/blob/main/legal/PRIVACY%20POLICY.md\n- *Official Website*: https://github.com/itsnotAZ/absolute-memer\n\n\n **MAKE SURE TO UPVOTE ME:** https://top.gg/bot/1309201141912965191\n **LEAVE A REVIEW:** https://top.gg/bot/1309201141912965191#reviews", inline=False)
     await interaction.response.send_message(embed=commands)
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
 
 @client.tree.command(name="joke", description="Tells a joke!") # joke command
 async def joke(interaction: discord.Interaction):
@@ -78,7 +84,9 @@ async def joke(interaction: discord.Interaction):
     else:
         print(f"Failed to retrieve joke. HTTP Status Code: {response.status_code}")
         await interaction.response.send_message("Sorry, I couldn't retrieve a joke for you. :frowning:")
-
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
+     
 @client.tree.command(name="trivia", description="Sends a random trivia question that can be answered!") # trivia command
 async def trivia(interaction: discord.Interaction):
     api_url = "https://opentdb.com/api.php?amount=1&type=boolean"
@@ -109,7 +117,9 @@ async def trivia(interaction: discord.Interaction):
             await interaction.followup.send("Invalid choice. Please choose either 1 for True or 2 for False.")
     except asyncio.TimeoutError:
         await interaction.followup.send(f"Time's up :alarm_clock:! The correct answer was: {correct_answer}")
-
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
+     
 @client.tree.command(name="memify", description="Creates a meme using the given image URL and top/bottom text!") # meme maker command
 @app_commands.describe(image_url="URL of the image", top_text="Text at the top of the meme", bottom_text="Text at the bottom of the meme")
 async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, bottom_text: str):
@@ -117,7 +127,9 @@ async def mememify(interaction: discord.Interaction, image_url: str, top_text: s
     bottom_text = bottom_text.replace(" ", "_")
     api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}"
     await interaction.response.send_message(api_url)
-
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
+     
 @client.tree.command(name="redditmeme", description="Grabs a meme from reddit!") # random meme from reddit command
 async def mememify(interaction: discord.Interaction):
     api_url = "https://meme-api.com/gimme"
@@ -125,7 +137,9 @@ async def mememify(interaction: discord.Interaction):
     data = response.json()
     link = data.get('postLink')
     await interaction.response.send_message(f":rofl: Here is what I found! {link}")
-
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
+     
 # run the client
 
-client.run(os.environ['TOKEN']) # requires a TOKEN env variable that contains the bot token. You can also just pass the token directly as a string.
+client.run(os.environ["TOKEN"]) # requires a TOKEN env variable that contains the bot token. You can also just pass the token directly as a string.
