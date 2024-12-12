@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://raw.githubusercontent.com/itsnotAZ/absolute-memer/refs/heads/main/other/1.png"/>
 
-<img src="https://img.shields.io/github/license/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/release/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/last-commit/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/issues/itsnotAZ/absolute-memer.svg"/> ![servers](https://top.gg/api/widget/servers/1309201141912965191.svg) ![upvotes](https://top.gg/api/widget/upvotes/1309201141912965191.svg)
+<img src="https://img.shields.io/github/license/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/release/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/last-commit/itsnotAZ/absolute-memer.svg"/> <img src="https://img.shields.io/github/issues/itsnotAZ/absolute-memer.svg"/> [![Discord Bots](https://top.gg/api/widget/servers/1309201141912965191.svg)](https://top.gg/bot/1309201141912965191) [![Discord Bots](https://top.gg/api/widget/upvotes/1309201141912965191.svg)](https://top.gg/bot/1309201141912965191)
 
 **Current Version:** 0.0.3V
 </div>
@@ -12,6 +12,8 @@ this is THE discord bot to enhance funni in server. 🔥
 **INVITE THE BOT:** [here](https://discord.com/oauth2/authorize?client_id=1309201141912965191)
 
 **JOIN THE DISCORD:** [here](https://discord.gg/XSVXt9usMq)
+
+**TOP.GG:** [here](https://top.gg/bot/1309201141912965191?s=02e6d6f9a9049)
 
 ## Features
 
