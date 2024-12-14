@@ -1,5 +1,7 @@
 # absolute memer bot by itsnotAZ source code
 
+# IMPORTANT: The file "config" needs to be in the same directory as this script.
+
 # api's used:
 # - jokeapi.dev
 # - opentdb.com
@@ -23,16 +25,21 @@ import os
 import random
 from datetime import datetime, timedelta
 
-# general variables for the bot
+# open config
+
+config = open(r"config", 'r')
+
+# general variables for the bot (pulled from config)
  
-bot_name = "Absolute Memer" # name of the bot
-bot_shde = "meme discord bot" # bot short description
-bot_vers = "0.0.4V ALPHA" # bot version
-promo = "<:am:1309893290921033818> Enjoying the bot? Support the development by upvoting on top.gg! It helps! <:am:1309893290921033818> https://top.gg/bot/1309201141912965191"
+bot_name = config.readlines()[2] # name of the bot
+bot_shde = config.readlines()[3] # bot short description
+bot_vers = config.readlines()[4] # bot version
+promo = config.readlines()[5]
+rpc = config.readlines()[6]
 
 # top.gg promo related code
 
-def ad_chance(chance=0.1):
+def ad_chance(chance=0.1): # 10%
     return random.random() < chance
 
 # define client and intents
@@ -45,7 +52,7 @@ client = commands.Bot(command_prefix="!", intents=intents)
 @client.event
 async def on_ready():
     print(f"Bot is online as {client.user}")
-    await client.change_presence(activity=discord.Game(name="Vote for me on Top.gg!"))
+    await client.change_presence(activity=discord.Game(name=rpc))
     try:
         synced = await client.tree.sync()
         print(f"Synced {len(synced)} commands.")
