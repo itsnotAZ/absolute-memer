@@ -32,14 +32,19 @@ config.seek(0)
 # general variables for the bot (pulled from config)
  
 bot_name = config.readlines()[2] # name of the bot
+bot_name = bot_name.replace(f"\n", "")
 config.seek(0)
 bot_shde = config.readlines()[3] # bot short description
+bot_shde = bot_shde.replace(f"\n", "")
 config.seek(0)
 bot_vers = config.readlines()[4] # bot version
+bot_vers = bot_vers.replace(f"\n", "")
 config.seek(0)
-promo = config.readlines()[5]
-config.seek(0)
-rpc = config.readlines()[6]
+promo = config.readlines()[5] # promo message
+promo = promo.replace(f"\n", "")
+config.seek(0) 
+rpc = config.readlines()[6] # rpc message
+rpc = rpc.replace(f"\n", "")
 
 # top.gg promo related code
 
@@ -74,7 +79,7 @@ async def hello(interaction: discord.Interaction):
 @client.tree.command(name="help", description="Displays a short manual to help you operate the bot!") # help command
 async def help(interaction: discord.Interaction):
     commands = discord.Embed(
-        title=f"<:am:1309893290921033818> {bot_name} Discord Bot <:am:1309893290921033818>", description=f"This is **THE BEST** {bot_shde}, devoid of AI, micro-transactions for major features and corporate enshitification! \n Created by itsnotAZ (itisnotAZ : https://itsnotaz.github.io/website/) \n ᴵ ᵗʳʸ ᵗᵒ ᵏᵉᵉᵖ ᵗʰⁱˢ ᵇᵒᵗ ˡⁱᵍʰᵗʰᵉᵃʳᵗᵉᵈ ᵇᵘᵗ ˢⁱⁿᶜᵉ ᵗʰᵉ ᵇᵒᵗ ᵖᵘˡˡˢ ᵐᵉᵐᵉˢ ᵃⁿᵈ ʲᵒᵏᵉˢ ᶠʳᵒᵐ ᵗʰᵉ ⁱⁿᵗᵉʳⁿᵉᵗ ⁱᵗ'ˢ ⁱᵐᵖᵒˢˢⁱᵇˡᵉ ᵗᵒ ᵐᵃᵏᵉ ᵗʰᵃᵗ ᶜᵉʳᵗᵃⁱⁿ ˢᵒ ᵖˡᵉᵃˢᵉ ᵈᵒⁿ'ᵗ ʰᵉˢⁱᵗᵃᵗᵉ ᵗᵒ ᶜᵒⁿᵗᵃᶜᵗ ᵐᵉ ᶠᵒʳ ᵃⁿʸ ᶜᵒⁿᶜᵉʳⁿˢ", color=0x336EFF
+        title=f"<:am:1309893290921033818> {bot_name} Discord Bot {bot_vers} <:am:1309893290921033818>", description=f"This is **THE BEST** {bot_shde}, devoid of AI, micro-transactions for major features and corporate enshitification! \n Created by itsnotAZ (itisnotAZ : https://itsnotaz.github.io/website/) \n ᴵ ᵗʳʸ ᵗᵒ ᵏᵉᵉᵖ ᵗʰⁱˢ ᵇᵒᵗ ˡⁱᵍʰᵗʰᵉᵃʳᵗᵉᵈ ᵇᵘᵗ ˢⁱⁿᶜᵉ ᵗʰᵉ ᵇᵒᵗ ᵖᵘˡˡˢ ᵐᵉᵐᵉˢ ᵃⁿᵈ ʲᵒᵏᵉˢ ᶠʳᵒᵐ ᵗʰᵉ ⁱⁿᵗᵉʳⁿᵉᵗ ⁱᵗ'ˢ ⁱᵐᵖᵒˢˢⁱᵇˡᵉ ᵗᵒ ᵐᵃᵏᵉ ᵗʰᵃᵗ ᶜᵉʳᵗᵃⁱⁿ ˢᵒ ᵖˡᵉᵃˢᵉ ᵈᵒⁿ'ᵗ ʰᵉˢⁱᵗᵃᵗᵉ ᵗᵒ ᶜᵒⁿᵗᵃᶜᵗ ᵐᵉ ᶠᵒʳ ᵃⁿʸ ᶜᵒⁿᶜᵉʳⁿˢ", color=0x336EFF
                 )
     commands.add_field(name=":rofl: */joke* command", value="Make the bot tell a random joke!", inline=False)
     commands.add_field(name=":thinking: */trivia* command", value="Make the bot give a random true/false question!", inline=False)
