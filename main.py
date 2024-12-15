@@ -32,9 +32,13 @@ config.seek(0)
 # general variables for the bot (pulled from config)
  
 bot_name = config.readlines()[2] # name of the bot
+config.seek(0)
 bot_shde = config.readlines()[3] # bot short description
+config.seek(0)
 bot_vers = config.readlines()[4] # bot version
+config.seek(0)
 promo = config.readlines()[5]
+config.seek(0)
 rpc = config.readlines()[6]
 
 # top.gg promo related code
