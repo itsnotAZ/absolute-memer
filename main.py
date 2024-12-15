@@ -27,6 +27,7 @@ import random
 # open config
 
 config = open(r"config", 'r')
+config.seek(0)
 
 # general variables for the bot (pulled from config)
  
