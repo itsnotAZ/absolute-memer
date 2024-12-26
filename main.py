@@ -29,6 +29,11 @@ import random
 config = open(r"config", 'r')
 config.seek(0)
 
+# define client and intents
+
+intents = discord.Intents.default()
+client = commands.Bot(command_prefix="!", intents=intents)
+
 # general variables for the bot (pulled from config)
  
 bot_name = config.readlines()[2] # name of the bot
@@ -45,16 +50,12 @@ promo = promo.replace(f"\n", "")
 config.seek(0) 
 rpc = config.readlines()[6] # rpc message
 rpc = rpc.replace(f"\n", "")
+guildnum = len(client.guilds) # variable for number of guilds
 
 # top.gg promo related code
 
 def ad_chance(chance=0.1): # 10%
     return random.random() < chance
-
-# define client and intents
-
-intents = discord.Intents.default()
-client = commands.Bot(command_prefix="!", intents=intents)
 
 # on ready code
 
@@ -67,6 +68,7 @@ async def on_ready():
         print(f"Synced {len(synced)} commands.")
     except Exception as e:
         print(f"Failed to sync commands: {e}")
+    print(f"Bot is active in {guildnum} guilds")
 
 # slash commands
 
