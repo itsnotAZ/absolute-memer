@@ -31,7 +31,7 @@ this is THE discord bot to enhance funni in server. 🔥
 
 **THIS WILL ALWAYS BE SUBJECT TO CHANGE (i think)**
 
-- [ ] Config File
+- [x] Config File
 - [ ] More commands
 - [ ] Buy Better Hosting
 - [ ] Actual Website
