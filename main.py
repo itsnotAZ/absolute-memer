@@ -157,7 +157,11 @@ async def mememify(interaction: discord.Interaction):
     await interaction.response.send_message(f":rofl: Here is what I found! {link}")
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
-     
+
+@client.tree.command(name="botstats", description="Shows useless information about the bot!") # bot stats
+async def mememify(interaction: discord.Interaction):
+      await interaction.response.send_message(f"- The bot is in {client.guilds} servers!\n- The bot is in {bot_vers}\n- The bot has {client.tree.sync()} commands!\n\n\n**MORE TO BE ADDED TO THIS COMMAND**")
+   
 # run the client
 
 client.run(os.environ["TOKEN"]) # requires a TOKEN env variable that contains the bot token. You can also just pass the token directly as a string.
