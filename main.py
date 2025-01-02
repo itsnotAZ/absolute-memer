@@ -157,10 +157,6 @@ async def mememify(interaction: discord.Interaction):
     await interaction.response.send_message(f":rofl: Here is what I found! {link}")
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
-
-@client.tree.command(name="botstats", description="Shows useless information about the bot!") # bot stats
-async def mememify(interaction: discord.Interaction):
-      await interaction.response.send_message(f"- The bot is in {guildnum} servers!\n- The bot is in {bot_vers}\n\n**MORE TO BE ADDED TO THIS COMMAND**")
    
 # run the client
 
