@@ -160,7 +160,7 @@ async def mememify(interaction: discord.Interaction):
 
 @client.tree.command(name="botstats", description="Shows useless information about the bot!") # bot stats
 async def mememify(interaction: discord.Interaction):
-      await interaction.response.send_message(f"- The bot is in {client.guilds} servers!\n- The bot is in {bot_vers}\n- The bot has {client.tree.sync()} commands!\n\n\n**MORE TO BE ADDED TO THIS COMMAND**")
+      await interaction.response.send_message(f"- The bot is in {guildnum} servers!\n- The bot is in {bot_vers}\n- The bot has {client.tree.sync()} commands!\n\n\n**MORE TO BE ADDED TO THIS COMMAND**")
    
 # run the client
 
