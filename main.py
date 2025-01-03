@@ -50,7 +50,6 @@ promo = promo.replace(f"\n", "")
 config.seek(0) 
 rpc = config.readlines()[6] # rpc message
 rpc = rpc.replace(f"\n", "")
-guildnum = len(client.guilds) # variable for number of guilds
 
 # top.gg promo related code
 
@@ -68,7 +67,6 @@ async def on_ready():
         print(f"Synced {len(synced)} commands.")
     except Exception as e:
         print(f"Failed to sync commands: {e}")
-    print(f"Bot is active in {guildnum} guilds")
 
 # slash commands
 
