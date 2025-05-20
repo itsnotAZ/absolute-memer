@@ -138,7 +138,7 @@ async def trivia(interaction: discord.Interaction):
      
 @client.tree.command(name="memify", description="Creates a meme using the given image URL and top/bottom text!") # meme maker command
 @app_commands.describe(image_url="URL of the image", top_text="Text at the top of the meme (You can use '~n' as a newline character!)", bottom_text="Text at the bottom of the meme (You can use '~n' as a newline character!)", font="Available fonts: titilliumweb, notosans, kalam, impact, titilliumweb-thin, segoe, hgminchob", overlay="Input a URL of the image you want to overlay on your meme!", overlayposx="The postion of your overlay on the x axis.", overlayposy="The postion of your overlay on the y axis.", overlayscale="The size of your overlay on your meme.", width="The width of your meme.", height="The height of your meme.")
-async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, bottom_text: str, font: str, overlay: str, overlayposx: float, overlayposy: float, overlayscale: float, width: int, height: int):
+async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, bottom_text: "", font: "notosans", overlay: "", overlayposx: "", overlayposy: "", overlayscale: "", width: "", height: ""):
     top_text = top_text.replace(" ", "_")
     top_text = top_text.replace("-", "--")
     top_text = top_text.replace("_", "__")
