@@ -141,7 +141,7 @@ async def trivia(interaction: discord.Interaction):
 async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, bottom_text: str, font: str):
     top_text = top_text.replace(" ", "_")
     bottom_text = bottom_text.replace(" ", "_")
-    api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}?font={image_url}"
+    api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}?font={font}"
     await interaction.response.send_message(api_url)
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
