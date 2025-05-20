@@ -137,11 +137,31 @@ async def trivia(interaction: discord.Interaction):
         await interaction.followup.send(promo, ephemeral=True)
      
 @client.tree.command(name="memify", description="Creates a meme using the given image URL and top/bottom text!") # meme maker command
-@app_commands.describe(image_url="URL of the image", top_text="Text at the top of the meme", bottom_text="Text at the bottom of the meme", font="Available fonts: titilliumweb, notosans, kalam, impact, titilliumweb-thin, segoe, hgminchob")
-async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, bottom_text: str, font: str):
+@app_commands.describe(image_url="URL of the image", top_text="Text at the top of the meme (You can use '~n' as a newline character!)", bottom_text="Text at the bottom of the meme (You can use '~n' as a newline character!)", font="Available fonts: titilliumweb, notosans, kalam, impact, titilliumweb-thin, segoe, hgminchob", overlay="Input a URL of the image you want to overlay on your meme!", overlayposx="The postion of your overlay on the x axis.", overlayposy="The postion of your overlay on the y axis.", overlayscale="The size of your overlay on your meme.", width="The width of your meme.", height="The height of your meme.")
+async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, bottom_text: str, font: str, overlay: str, overlayposx: float, overlayposy: float, overlayscale: float, width: int, height: int):
     top_text = top_text.replace(" ", "_")
+    top_text = top_text.replace("-", "--")
+    top_text = top_text.replace("_", "__")
+    top_text = top_text.replace("?", "~q")
+    top_text = top_text.replace("&", "~a")
+    top_text = top_text.replace("%", "~p")
+    top_text = top_text.replace("#", "~h")
+    top_text = top_text.replace("/", "~s")
+    # top_text = top_text.replace("\", "~b") weird shit happens when you uncomment this line
+    top_text = top_text.replace("<", "~l")
+    top_text = top_text.replace(">", "~g")
     bottom_text = bottom_text.replace(" ", "_")
-    api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}?font={font}"
+    bottom_text = bottom_text.replace("-", "--")
+    bottom_text = bottom_text.replace("_", "__")
+    bottom_text = bottom_text.replace("?", "~q")
+    bottom_text = bottom_text.replace("&", "~a")
+    bottom_text = bottom_text.replace("%", "~p")
+    bottom_text = bottom_text.replace("#", "~h")
+    bottom_text = bottom_text.replace("/", "~s")
+    # bottom_text = bottom_text.replace("\", "~b") weird shit happens when you uncomment this line part 2
+    bottom_text = bottom_text.replace("<", "~l")
+    bottom_text = bottom_text.replace(">", "~g")
+    api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}?font={font}?style={overlay}?center={overlayposx},{overlayposy}?scale={overlayscale}?height={height}&width={width}"
     await interaction.response.send_message(api_url)
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
@@ -155,7 +175,7 @@ async def mememify(interaction: discord.Interaction):
     await interaction.response.send_message(f":rofl: Here is what I found! {link}")
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
-   
+
 # run the client
 
 client.run(os.environ["TOKEN"]) # requires a TOKEN env variable that contains the bot token. You can also just pass the token directly as a string.
