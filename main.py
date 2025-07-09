@@ -177,6 +177,14 @@ async def mememify(interaction: discord.Interaction):
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
 
+@client.tree.command(name="echo", description="Repeats (ECHOS!!!, haha get it?? c:) the input given!") # echo command... oh i just know this is gonna get abused
+@app_commands.describe(input="Text to repeat (Don't say anything dirty pretty pwease 👉👈️)")
+async def mememify(interaction: discord.Interaction, input : str):
+    thingtosay = f"{input}"
+    await interaction.response.send_message(thingtosay)
+    if ad_chance(chance=0.1):
+        await interaction.followup.send(promo, ephemeral=True)
+
 # run the client
 
 client.run(os.environ["TOKEN"]) # requires a TOKEN env variable that contains the bot token. You can also just pass the token directly as a string.
