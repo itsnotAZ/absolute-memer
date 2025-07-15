@@ -140,30 +140,31 @@ async def trivia(interaction: discord.Interaction):
 @client.tree.command(name="memify", description="Creates a meme using the given image URL and top/bottom text!") # meme maker command
 @app_commands.describe(image_url="URL of the image", top_text="Text at the top of the meme (You can use '~n' as a newline character!)", bottom_text="Text at the bottom of the meme (You can use '~n' as a newline character!)", font="Available fonts: titilliumweb, notosans, kalam, impact, titilliumweb-thin, segoe, hgminchob", overlay="Input a URL of the image you want to overlay on your meme!", overlayposx="The postion of your overlay on the x axis.", overlayposy="The postion of your overlay on the y axis.", overlayscale="The size of your overlay on your meme.", width="The width of your meme.", height="The height of your meme.")
 async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, font: str, bottom_text: Optional[str], overlay: Optional[str], overlayposx: Optional[float], overlayposy: Optional[float], overlayscale: Optional[float], width: Optional[int], height: Optional[int]):
-    top_text = top_text.replace(" ", "_")
-    top_text = top_text.replace("-", "--")
-    # top_text = top_text.replace("_", "__") interferes with the space replace
-    top_text = top_text.replace("?", "~q")
-    top_text = top_text.replace("&", "~a")
-    top_text = top_text.replace("%", "~p")
-    top_text = top_text.replace("#", "~h")
-    top_text = top_text.replace("/", "~s")
-    # top_text = top_text.replace("\", "~b") weird shit happens when you uncomment this line
-    top_text = top_text.replace("<", "~l")
-    top_text = top_text.replace(">", "~g")
-    bottom_text = bottom_text.replace(" ", "_")
-    bottom_text = bottom_text.replace("-", "--")
-    # bottom_text = bottom_text.replace("_", "__") interferes with the space replace
-    bottom_text = bottom_text.replace("?", "~q")
-    bottom_text = bottom_text.replace("&", "~a")
-    bottom_text = bottom_text.replace("%", "~p")
-    bottom_text = bottom_text.replace("#", "~h")
-    bottom_text = bottom_text.replace("/", "~s")
-    # bottom_text = bottom_text.replace("\", "~b") weird shit happens when you uncomment this line part 2
-    bottom_text = bottom_text.replace("<", "~l")
-    bottom_text = bottom_text.replace(">", "~g")
-    api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}?font={font}?style={overlay}?center={overlayposx},{overlayposy}?scale={overlayscale}?height={height}&width={width}"
-    await interaction.response.send_message(api_url)
+#    top_text = top_text.replace(" ", "_")
+#    top_text = top_text.replace("-", "--")
+#    # top_text = top_text.replace("_", "__") interferes with the space replace
+#    top_text = top_text.replace("?", "~q")
+#    top_text = top_text.replace("&", "~a")
+#    top_text = top_text.replace("%", "~p")
+#    top_text = top_text.replace("#", "~h")
+#    top_text = top_text.replace("/", "~s")
+#    # top_text = top_text.replace("\", "~b") weird shit happens when you uncomment this line
+#    top_text = top_text.replace("<", "~l")
+#    top_text = top_text.replace(">", "~g")
+#    bottom_text = bottom_text.replace(" ", "_")
+#    bottom_text = bottom_text.replace("-", "--")
+#    # bottom_text = bottom_text.replace("_", "__") interferes with the space replace
+#    bottom_text = bottom_text.replace("?", "~q")
+#    bottom_text = bottom_text.replace("&", "~a")
+#    bottom_text = bottom_text.replace("%", "~p")
+#    bottom_text = bottom_text.replace("#", "~h")
+#    bottom_text = bottom_text.replace("/", "~s")
+#    # bottom_text = bottom_text.replace("\", "~b") weird shit happens when you uncomment this line part 2
+#    bottom_text = bottom_text.replace("<", "~l")
+#    bottom_text = bottom_text.replace(">", "~g")
+#    api_url = f"https://api.memegen.link/images/custom/{top_text}/{bottom_text}.png?background={image_url}?font={font}?style={overlay}?center={overlayposx},{overlayposy}?scale={overlayscale}?height={height}&width={width}"
+#    await interaction.response.send_message(api_url)
+    await interaction.response.send_message("This command is temporarily disabled as of this current update. Working on making this feature better! Sorry! :sob:")
     if ad_chance(chance=0.1):
         await interaction.followup.send(promo, ephemeral=True)
      
