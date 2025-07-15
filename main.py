@@ -142,7 +142,7 @@ async def trivia(interaction: discord.Interaction):
 async def mememify(interaction: discord.Interaction, image_url: str, top_text: str, font: str, bottom_text: Optional[str], overlay: Optional[str], overlayposx: Optional[float], overlayposy: Optional[float], overlayscale: Optional[float], width: Optional[int], height: Optional[int]):
     top_text = top_text.replace(" ", "_")
     top_text = top_text.replace("-", "--")
-    top_text = top_text.replace("_", "__")
+    # top_text = top_text.replace("_", "__") interferes with the space replace
     top_text = top_text.replace("?", "~q")
     top_text = top_text.replace("&", "~a")
     top_text = top_text.replace("%", "~p")
@@ -153,7 +153,7 @@ async def mememify(interaction: discord.Interaction, image_url: str, top_text: s
     top_text = top_text.replace(">", "~g")
     bottom_text = bottom_text.replace(" ", "_")
     bottom_text = bottom_text.replace("-", "--")
-    bottom_text = bottom_text.replace("_", "__")
+    # bottom_text = bottom_text.replace("_", "__") interferes with the space replace
     bottom_text = bottom_text.replace("?", "~q")
     bottom_text = bottom_text.replace("&", "~a")
     bottom_text = bottom_text.replace("%", "~p")
